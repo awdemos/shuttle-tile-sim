@@ -13,6 +13,7 @@ pub mod simulation;
 pub mod testing;
 
 #[derive(thiserror::Error, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum TileError {
     #[error("Material error: {0}")]
     MaterialError(String),
@@ -144,6 +145,7 @@ pub struct TileGeometry {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum TileShape {
     Flat,
     Contoured,
@@ -177,6 +179,7 @@ pub struct TileLocation {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum TileSurface {
     NoseCap,
     WingLeadingEdge,
@@ -246,6 +249,7 @@ pub struct IdAuditResult {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum AuditStatus {
     Pass,
     Warn,
@@ -262,6 +266,7 @@ pub struct AuditFinding {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum FindingCategory {
     SchemaCompliance,
     ChecksumValidity,
@@ -274,6 +279,7 @@ pub enum FindingCategory {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum FindingSeverity {
     Info,
     Warning,
@@ -291,6 +297,7 @@ pub struct ManufacturingStep {
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum StepResult {
     Success,
     Warning(String),
@@ -316,6 +323,7 @@ pub struct TileState {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum ManufacturingStage {
     RawMaterial,
     SlurryFormation,
@@ -341,6 +349,7 @@ pub struct TestRecord {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum TestType {
     Thermal,
     Mechanical,
@@ -350,6 +359,7 @@ pub enum TestType {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum TestOutcome {
     Pass,
     Fail,
@@ -366,6 +376,7 @@ pub struct Defect {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum DefectCategory {
     Material,
     Geometry,
@@ -377,6 +388,7 @@ pub enum DefectCategory {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum DefectSeverity {
     Minor,
     Major,
@@ -412,6 +424,7 @@ pub struct AdhesionTestResult {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum FailureMode {
     Cohesive,
     Adhesive,
@@ -433,6 +446,7 @@ pub struct SimulationState {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum DegradationState {
     Nominal,
     Slight,
@@ -494,6 +508,7 @@ pub struct SimulationSummary {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[non_exhaustive]
 pub enum OverallStatus {
     Accepted,
     AcceptedWithNotes,
