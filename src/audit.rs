@@ -3,18 +3,16 @@ use crate::{
     IdSchema, TileBatch, TileId, TileLocation,
 };
 use chrono::Utc;
-use std::collections::{HashMap, HashSet};
+use std::collections::HashSet;
 
 pub struct AuditEngine {
     seen_ids: HashSet<String>,
-    batch_records: HashMap<String, usize>,
 }
 
 impl AuditEngine {
     pub fn new() -> Self {
         Self {
             seen_ids: HashSet::new(),
-            batch_records: HashMap::new(),
         }
     }
 
