@@ -110,7 +110,7 @@ fn luhn_checksum(digits: &[u8]) -> u8 {
         sum += value;
         double = !double;
     }
-    ((100 - (sum % 100)) % 100) as u8
+    (100 - (sum % 100)) % 100
 }
 
 fn calculate_checksum_str(s: &str) -> u8 {

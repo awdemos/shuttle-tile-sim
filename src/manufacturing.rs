@@ -226,7 +226,7 @@ pub fn apply_bonding(
     crate::materials::validate_adhesive(&adhesive)?;
 
     let bond_strength_mpa =
-        if let (Some(ref material), Some(ref geometry)) = (tile.material.as_ref(), tile.geometry.as_ref()) {
+        if let (Some(material), Some(geometry)) = (tile.material.as_ref(), tile.geometry.as_ref()) {
             crate::bonding::calculate_bond_strength(material, &sip, &adhesive, geometry)
                 .unwrap_or(2.0)
                 .max(2.0)

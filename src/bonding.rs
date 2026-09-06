@@ -42,7 +42,7 @@ pub fn calculate_bond_strength(
         ));
     }
 
-    let area_factor = geometry.surface_area_m2.min(1.0).max(0.0001);
+    let area_factor = geometry.surface_area_m2.clamp(0.0001, 1.0);
     let density_factor = material.density_kg_m3 / 144.0;
     let sip_factor = sip.shear_modulus_mpa / 0.5;
     let adhesive_contribution = adhesive.shear_strength_mpa * 0.6;
